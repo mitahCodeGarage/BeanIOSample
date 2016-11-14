@@ -1,0 +1,16 @@
+<beanio xmlns="http://www.beanio.org/2012/03"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.beanio.org/2012/03 http://www.beanio.org/2012/03/mapping.xsd">
+	 
+	 <stream name="Person" format="delimited">
+        <parser class="Sample.config.CustomDelimitedBeanIOParserFactory">
+            <property name="customDelimiter" value="\\[\\^"/>
+        </parser>
+         <record name="detail" class="Sample.entity.Person">
+            <field name="firstName" required="true" maxLength="20" trim="true"/>
+            <field name="lastName" maxLength="20" trim="true"/>
+            <field name="age" maxLength="2" trim="true"/>
+            <field name="gender" maxLength="6" trim="true"/>
+        </record>
+	</stream>
+</beanio>
